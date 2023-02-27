@@ -65,7 +65,6 @@ public class PlayerController : MonoBehaviour
         playerPosition.x += moveDirection.x;
         playerPosition.y += moveDirection.y;
         transform.position = playerPosition;
-        Debug.Log("Last Position: "+ lastHeadPosition + " Current Head Position: "+transform.position);
     }
 
     private void MoveBody()
@@ -73,7 +72,6 @@ public class PlayerController : MonoBehaviour
         if (snakeSegments.Count == 1)
             return;
 
-        Debug.Log("Move Body");
         Vector3 lastSegmentPostion = lastHeadPosition;
         for(int i = 1;i<snakeSegments.Count;i++)
         {
@@ -89,6 +87,14 @@ public class PlayerController : MonoBehaviour
         snakeSegments.Insert(1, segment);
     }
 
+    public void Srink()
+    {
+        if (snakeSegments.Count == 1)
+            return;
+        Transform lastSegment = snakeSegments[^1];
+        snakeSegments.Remove(lastSegment);
+        Destroy(lastSegment.gameObject);
+    }
 
     public void GameOver()
     {

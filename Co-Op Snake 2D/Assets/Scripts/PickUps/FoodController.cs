@@ -15,22 +15,14 @@ public class FoodController : MonoBehaviour
         switch(type)
         {
             case FoodType.Grow:
-                Grow();
+                playerController.Grow();
                 break;
             case FoodType.Srink:
-                Srink();
+                playerController.Srink();
                 break;
         }
-    }
-
-    private void Srink()
-    {
-        return;
-    }
-
-    private void Grow()
-    {
-        playerController.Grow();
         Destroy(gameObject);
     }
+
+    
 }
