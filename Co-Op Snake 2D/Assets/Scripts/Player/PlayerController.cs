@@ -32,6 +32,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float shieldPowerupDuration = 3f;
+
+    [SerializeField]
+    private float ScoreBoostPowerupDuration = 7f;
+
     private bool shieldInUse = false;
 
     private void Awake()
@@ -122,9 +126,21 @@ public class PlayerController : MonoBehaviour
         Invoke(nameof(DisableShield),shieldPowerupDuration);
     }
 
+
     private void DisableShield()
     {
         shieldInUse = false;
+    }
+
+    public void ScoreBoost()
+    {
+        increaseScoreAmt *= 2;
+        Invoke(nameof(DisableScoreBoost), ScoreBoostPowerupDuration);
+    }
+
+    private void DisableScoreBoost()
+    {
+        increaseScoreAmt /= 2;
     }
 
     public void GameOver()

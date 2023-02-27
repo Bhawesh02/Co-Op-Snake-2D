@@ -1,6 +1,13 @@
 
 using System;
 using UnityEngine;
+public enum FoodType
+{
+    Grow,
+    Srink,
+    Shield,
+    Score
+}
 
 public class FoodController : MonoBehaviour
 {
@@ -22,6 +29,9 @@ public class FoodController : MonoBehaviour
                 break;
             case FoodType.Shield:
                 playerController.Shield();
+                break;
+            case FoodType.Score:
+                playerController.ScoreBoost();
                 break;
         }
         Destroy(gameObject);
