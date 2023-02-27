@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2879810690379044739}
   - component: {fileID: 3336485951784393101}
   - component: {fileID: 3270379815837677700}
-  - component: {fileID: -1218039047375065835}
+  - component: {fileID: -7648518424315054692}
   m_Layer: 0
   m_Name: GrowFood
   m_TagString: Untagged
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &-1218039047375065835
+--- !u!114 &-7648518424315054692
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7979395850817165798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 866024238c56c0e4a96794f696dffda9, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b418dd610d7d7941bd8fa83fd3fdb36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 0
