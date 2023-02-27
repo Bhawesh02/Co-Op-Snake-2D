@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bufferMovementTime: 0.06
+  snakeSegmentPrefab: {fileID: 8672752796183694212, guid: 9414fcecd4d892941843bd006279f2b4, type: 3}
 --- !u!114 &8672752796183694210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,5 +161,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799c18ac44467fa41ab4eaa966acedad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBoundry: 16
-  yBoundry: 8

@@ -10,18 +10,22 @@ public class PlayerController : MonoBehaviour
     private float bufferMovementTime;
     private Vector2 moveDirection = Vector2.zero;
 
+    private List<Transform> snakeSegments;
+
+    [SerializeField]
+    private Transform snakeSegmentPrefab;
     private void Awake()
     {
+        snakeSegments = new List<Transform>();
+        snakeSegments.Add(gameObject.transform);
+
     }
     private void Start()
     {
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
         
     }
-    private void Update()
-    {
-    }
-
+    
 
     private void PlayerMovement()
     {
@@ -43,13 +47,34 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection = Vector2.down;
         }
+        MoveBody();
+        MoveHead();
+
+    }
+
+    private void MoveHead()
+    {
         Vector3 playerPosition = transform.position;
         playerPosition.x += moveDirection.x;
         playerPosition.y += moveDirection.y;
         transform.position = playerPosition;
     }
+
+    private void MoveBody()
+    {
+        if (moveDirection != Vector2.zero)
+        {
+            for (int i = snakeSegments.Count - 1; i > 0; i--)
+            {
+                snakeSegments[i].position = snakeSegments[i - 1].position;
+            }
+        }
+    }
+
     public void Grow()
     {
-        Debug.Log("Grow");
+        Transform segment = Instantiate(snakeSegmentPrefab);
+        segment.position = snakeSegments[^1].position;
+        snakeSegments.Add(segment);
     }
 }

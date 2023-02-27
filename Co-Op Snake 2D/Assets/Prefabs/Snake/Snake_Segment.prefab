@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 8672752796183694215}
   - component: {fileID: 8672752796183694214}
   - component: {fileID: 8672752796183694217}
-  - component: {fileID: 8672752796183694213}
   - component: {fileID: 8672752796183694210}
   m_Layer: 0
   m_Name: Snake_Segment
@@ -135,19 +134,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.75, y: 0.75}
   m_EdgeRadius: 0
---- !u!114 &8672752796183694213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8672752796183694216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cb0b8da9419e52a4dae60b3311d10808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bufferMovementTime: 0.06
 --- !u!114 &8672752796183694210
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,5 +146,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 799c18ac44467fa41ab4eaa966acedad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBoundry: 16
-  yBoundry: 8
