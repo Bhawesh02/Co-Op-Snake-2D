@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class OutOfBoundry : MonoBehaviour
 {
-    [SerializeField]
-    private float xBoundry = 16.0f;
-    [SerializeField]
-    private float yBoundry = 8.0f;
+    private float xBoundry;
+    private float yBoundry;
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        xBoundry = GameManager.Instance.xBoundry;
+        yBoundry = GameManager.Instance.yBoundry;
+    }
     void Update()
     {
         Vector3 segmentPosition = transform.position;
