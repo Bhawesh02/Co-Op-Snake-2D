@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,14 @@ public class PlayerController : MonoBehaviour
 
     private Vector3 lastHeadPosition;
 
+    [SerializeField]
+    private TextMeshProUGUI scoreText;
+
+    private int currentScore = 0;
+
+    [SerializeField]
+    private float scoreUpdateTime;
+
     private void Awake()
     {
         snakeSegments = new List<Transform>();
@@ -27,9 +36,14 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
-
+        InvokeRepeating(nameof(ScoreUpdate), scoreUpdateTime, scoreUpdateTime);
     }
 
+    private void ScoreUpdate()
+    {
+        currentScore += 5;
+        scoreText.text = "Score: " + currentScore;
+    }
 
     private void PlayerMovement()
     {
@@ -100,7 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Dead");
 
-        CancelInvoke(nameof(PlayerMovement));
+        CancelInvoke();
         this.enabled = false;
     }
 
