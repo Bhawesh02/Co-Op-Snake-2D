@@ -6,7 +6,8 @@ public enum FoodType
     Grow,
     Srink,
     Shield,
-    Score
+    Score,
+    Speed
 }
 
 public class FoodController : MonoBehaviour
@@ -32,6 +33,9 @@ public class FoodController : MonoBehaviour
                 break;
             case FoodType.Score:
                 playerController.ScoreBoost();
+                break;
+            case FoodType.Speed:
+                playerController.SpeedBoost();
                 break;
         }
         Destroy(gameObject);

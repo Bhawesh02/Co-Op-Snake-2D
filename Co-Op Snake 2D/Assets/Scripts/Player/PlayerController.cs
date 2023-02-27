@@ -35,6 +35,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float ScoreBoostPowerupDuration = 7f;
+    [SerializeField]
+    private float SpeedBoostPowerupDuration = 5f;
 
     private bool shieldInUse = false;
 
@@ -44,6 +46,9 @@ public class PlayerController : MonoBehaviour
         snakeSegments.Add(gameObject.transform);
 
     }
+
+    
+
     private void Start()
     {
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
@@ -143,6 +148,18 @@ public class PlayerController : MonoBehaviour
         increaseScoreAmt /= 2;
     }
 
+    public void SpeedBoost()
+    {
+        CancelInvoke(nameof(PlayerMovement));
+        InvokeRepeating(nameof(PlayerMovement), bufferMovementTime/2, bufferMovementTime/2);
+        Invoke(nameof(DisableSpeedBoost), SpeedBoostPowerupDuration);
+    }
+
+    private void DisableSpeedBoost()
+    {
+        CancelInvoke(nameof(PlayerMovement));
+        InvokeRepeating(nameof(PlayerMovement), bufferMovementTime , bufferMovementTime );
+    }
     public void GameOver()
     {
         if (shieldInUse)
