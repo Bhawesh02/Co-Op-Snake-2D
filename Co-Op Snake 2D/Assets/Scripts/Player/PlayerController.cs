@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float scoreUpdateTime;
 
+    [SerializeField]
+    private float shieldPowerupDuration = 3f;
+    private bool shieldInUse = false;
+
     private void Awake()
     {
         snakeSegments = new List<Transform>();
@@ -90,7 +94,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         Vector3 lastSegmentPostion = lastHeadPosition;
-        for(int i = 1;i<snakeSegments.Count;i++)
+        for (int i = 1; i < snakeSegments.Count; i++)
         {
             Vector3 currentSegmentPostion = snakeSegments[i].position;
             snakeSegments[i].position = lastSegmentPostion;
@@ -100,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
     public void Grow()
     {
-        Transform segment = Instantiate(snakeSegmentPrefab, lastHeadPosition, snakeSegments[^1].rotation,transform.parent);
+        Transform segment = Instantiate(snakeSegmentPrefab, lastHeadPosition, snakeSegments[^1].rotation, transform.parent);
         snakeSegments.Insert(1, segment);
     }
 
@@ -112,10 +116,21 @@ public class PlayerController : MonoBehaviour
         snakeSegments.Remove(lastSegment);
         Destroy(lastSegment.gameObject);
     }
+    public void Shield()
+    {
+        shieldInUse = true;
+        Invoke(nameof(DisableShield),shieldPowerupDuration);
+    }
+
+    private void DisableShield()
+    {
+        shieldInUse = false;
+    }
 
     public void GameOver()
     {
-        Debug.Log("Dead");
+        if (shieldInUse)
+            return;
 
         CancelInvoke();
         this.enabled = false;

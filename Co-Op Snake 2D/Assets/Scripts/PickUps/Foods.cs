@@ -1,5 +1,6 @@
 public enum FoodType
 {
     Grow,
-    Srink
+    Srink,
+    Shield
 }

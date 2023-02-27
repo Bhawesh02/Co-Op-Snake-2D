@@ -20,6 +20,9 @@ public class FoodController : MonoBehaviour
             case FoodType.Srink:
                 playerController.Srink();
                 break;
+            case FoodType.Shield:
+                playerController.Shield();
+                break;
         }
         Destroy(gameObject);
     }
