@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class OutOfBoundry : MonoBehaviour
 {
-    private float xBoundry;
-    private float yBoundry;
-
+    private int xBoundry;
+    private int yBoundry;
     private void Start()
     {
         xBoundry = GameManager.Instance.xBoundry;

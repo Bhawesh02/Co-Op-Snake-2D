@@ -12,8 +12,7 @@ public enum FoodType
 
 public class FoodController : MonoBehaviour
 {
-    [SerializeField]
-    private FoodType type;
+    public FoodType type;
     PlayerController playerController;
     private void OnTriggerEnter2D(Collider2D collision)
     {

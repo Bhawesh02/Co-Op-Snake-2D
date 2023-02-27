@@ -7,8 +7,8 @@ public class GameManager :MonoBehaviour
     private static GameManager instance;
     public static GameManager Instance { get { return instance;} }
 
-    public float xBoundry;
-    public float yBoundry;
+    public int xBoundry;
+    public int yBoundry;
 
     private void Awake()
     {

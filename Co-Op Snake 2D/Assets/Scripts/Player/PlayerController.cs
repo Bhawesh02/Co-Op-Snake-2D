@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
@@ -12,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float bufferMovementTime;
     private Vector2 moveDirection = Vector2.zero;
 
-    private List<Transform> snakeSegments;
+    public List<Transform> snakeSegments;
 
     [SerializeField]
     private Transform snakeSegmentPrefab;
@@ -39,6 +38,9 @@ public class PlayerController : MonoBehaviour
     private float SpeedBoostPowerupDuration = 5f;
 
     private bool shieldInUse = false;
+
+    [SerializeField]
+    private FoodSpawner foodSpawner;
 
     private void Awake()
     {
@@ -166,6 +168,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         CancelInvoke();
+        foodSpawner.CancelInvoke();
         this.enabled = false;
     }
 
