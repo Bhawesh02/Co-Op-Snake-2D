@@ -5,22 +5,22 @@ using UnityEngine;
 public class OutOfBoundry : MonoBehaviour
 {
     [SerializeField]
-    private float xBoundry;
+    private float xBoundry = 16.0f;
     [SerializeField]
-    private float yBoundry;
+    private float yBoundry = 8.0f;
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 playerPosition = transform.position;
-        if (Mathf.Abs(playerPosition.x) == xBoundry)
+        Vector3 segmentPosition = transform.position;
+        if (Mathf.Abs(segmentPosition.x) == xBoundry)
         {
-            playerPosition.x = (playerPosition.x - (1 * Mathf.Sign(playerPosition.x))) * -1;
+            segmentPosition.x = (segmentPosition.x - (1 * Mathf.Sign(segmentPosition.x))) * -1;
         }
-        else if (Mathf.Abs(playerPosition.y) == yBoundry)
+        else if (Mathf.Abs(segmentPosition.y) == yBoundry)
         {
-            playerPosition.y = (playerPosition.y - (1 * Mathf.Sign(playerPosition.y))) * -1;
+            segmentPosition.y = (segmentPosition.y - (1 * Mathf.Sign(segmentPosition.y))) * -1;
         }
-        transform.position = playerPosition;
+        transform.position = segmentPosition;
     }
 }
