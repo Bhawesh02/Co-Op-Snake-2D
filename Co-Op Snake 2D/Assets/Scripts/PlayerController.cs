@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
     public void Grow()
     {
         Transform segment = Instantiate(snakeSegmentPrefab);
+        segment.parent = transform.parent;
         segment.position = snakeSegments[^1].position;
         snakeSegments.Add(segment);
     }
