@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     private int currentScore = 0;
 
     [SerializeField]
+    private int increaseScoreAmt = 5;
+
+    [SerializeField]
     private float scoreUpdateTime;
 
     private void Awake()
@@ -41,7 +44,7 @@ public class PlayerController : MonoBehaviour
 
     private void ScoreUpdate()
     {
-        currentScore += 5;
+        currentScore += increaseScoreAmt;
         scoreText.text = "Score: " + currentScore;
     }
 
