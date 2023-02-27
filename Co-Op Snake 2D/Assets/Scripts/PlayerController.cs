@@ -12,23 +12,22 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        Time.fixedDeltaTime = bufferMovementTime;
+    }
+    private void Start()
+    {
+        InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
+        
     }
     private void Update()
     {
-        
     }
 
-    private void FixedUpdate()
-    {
-        PlayerMovement();
-    }
 
     private void PlayerMovement()
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        if(horizontalInput > 0)
+        if (horizontalInput > 0)
         {
             moveDirection = Vector2.right;
         }
@@ -36,11 +35,11 @@ public class PlayerController : MonoBehaviour
         {
             moveDirection = Vector2.left;
         }
-        if(verticalInput > 0)
+        if (verticalInput > 0)
         {
             moveDirection = Vector2.up;
         }
-        if(verticalInput<0)
+        if (verticalInput < 0)
         {
             moveDirection = Vector2.down;
         }
@@ -48,6 +47,9 @@ public class PlayerController : MonoBehaviour
         playerPosition.x += moveDirection.x;
         playerPosition.y += moveDirection.y;
         transform.position = playerPosition;
-        moveDirection = Vector2.zero;
+    }
+    public void Grow()
+    {
+        Debug.Log("Grow");
     }
 }
