@@ -7,7 +7,7 @@ public class OutOfBoundry : MonoBehaviour
     private float xBoundry;
     private float yBoundry;
 
-    private void Awake()
+    private void Start()
     {
         xBoundry = GameManager.Instance.xBoundry;
         yBoundry = GameManager.Instance.yBoundry;
