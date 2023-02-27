@@ -31,19 +31,19 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
-        if (horizontalInput > 0)
+        if (horizontalInput > 0 && moveDirection!=Vector2.left)
         {
             moveDirection = Vector2.right;
         }
-        if (horizontalInput < 0)
+        if (horizontalInput < 0 && moveDirection != Vector2.right)
         {
             moveDirection = Vector2.left;
         }
-        if (verticalInput > 0)
+        if (verticalInput > 0 && moveDirection != Vector2.down)
         {
             moveDirection = Vector2.up;
         }
-        if (verticalInput < 0)
+        if (verticalInput < 0 && moveDirection != Vector2.up)
         {
             moveDirection = Vector2.down;
         }
