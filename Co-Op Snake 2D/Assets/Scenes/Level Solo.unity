@@ -378,6 +378,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8672752796183694213, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
+      propertyPath: gameOver
+      value: 
+      objectReference: {fileID: 793801391}
+    - target: {fileID: 8672752796183694213, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
       propertyPath: playerId
       value: 1
       objectReference: {fileID: 0}
