@@ -45,6 +45,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private FoodSpawner foodSpawner;
 
+    [SerializeField]
+    private GameObject gameOver;
+
     private void Awake()
     {
         snakeSegments = new List<Transform>();
@@ -177,6 +180,7 @@ public class PlayerController : MonoBehaviour
 
         CancelInvoke();
         foodSpawner.CancelInvoke();
+        gameObject.SetActive(true);
         this.enabled = false;
     }
 
