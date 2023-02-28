@@ -44,7 +44,7 @@ public class GameOverUIController : MonoBehaviour
     }
     private void CoopGameOver()
     {
-
+        message.text = "Game Over\nPlayer " + GameManager.Instance.playerLostId + " Lost";
     }
 
 }

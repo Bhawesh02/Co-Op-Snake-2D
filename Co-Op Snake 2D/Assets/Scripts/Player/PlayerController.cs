@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.players.Add(this);
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
+        if((GameMode)PlayerPrefs.GetInt("GameMode") == GameMode.Solo)
         InvokeRepeating(nameof(ScoreUpdate), scoreUpdateTime, scoreUpdateTime);
     }
 
