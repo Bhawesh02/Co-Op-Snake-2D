@@ -153,13 +153,15 @@ public class PlayerController : MonoBehaviour
     public void SpeedBoost()
     {
         CancelInvoke(nameof(PlayerMovement));
-        InvokeRepeating(nameof(PlayerMovement), bufferMovementTime/2, bufferMovementTime/2);
+        bufferMovementTime /= 2;
+        InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
         Invoke(nameof(DisableSpeedBoost), SpeedBoostPowerupDuration);
     }
 
     private void DisableSpeedBoost()
     {
         CancelInvoke(nameof(PlayerMovement));
+        bufferMovementTime *= 2;
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime , bufferMovementTime );
     }
     public void GameOver()
