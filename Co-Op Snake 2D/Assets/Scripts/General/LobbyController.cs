@@ -1,18 +1,63 @@
-using System.Collections;
-using System.Collections.Generic;
+
+using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LobbyController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private Button playButton;
+    [SerializeField]
+    private Button quitButton;
+    [SerializeField]
+    private Button backButton;
+
+    [SerializeField]
+    private GameObject LevelSelection;
+    [SerializeField]
+    private Button soloButton;
+    [SerializeField]
+    private Button coopButton;
+
+
+    private void Awake()
     {
-        
+        playButton.onClick.AddListener(Play);
+        quitButton.onClick.AddListener(Quit);
+        backButton.onClick.AddListener(Back);
+        soloButton.onClick.AddListener(SoloPlay);
+        coopButton.onClick.AddListener(CoopPlay);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void SoloPlay()
     {
-        
+        SceneManager.LoadScene(1);
+    }
+
+    private void CoopPlay()
+    {
+        SceneManager.LoadScene(2);
+    }
+
+    private void Back()
+    {
+        LevelSelection.SetActive(false);
+
+    }
+
+    private void Quit()
+    {
+
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+        Application.Quit();
+
+    }
+
+    private void Play()
+    {
+        LevelSelection.SetActive(true);
     }
 }
