@@ -19,14 +19,10 @@ public class GameOverUIController : MonoBehaviour
     private void Awake()
     {
         mode = (GameMode)PlayerPrefs.GetInt("GameMode");
-        replay.onClick.AddListener(Restart);
+        replay.onClick.AddListener(GameManager.Instance.RestartLevel);
     }
 
-    private void Restart()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
+    
     private void OnEnable()
     {
         if (mode == GameMode.Solo)
@@ -39,12 +35,12 @@ public class GameOverUIController : MonoBehaviour
 
     private void SoloGameOver()
     {
-        PlayerController player = GameManager.Instance.players[0];
+        PlayerController player = GameManager.Instance.Players[0];
         message.text="Game Over\nFinal Score: "+player.currentScore;
     }
     private void CoopGameOver()
     {
-        message.text = "Game Over\nPlayer " + GameManager.Instance.playerLostId + " Lost";
+        message.text = "Game Over\nPlayer " + GameManager.Instance.PlayerLostId + " Lost";
     }
 
 }

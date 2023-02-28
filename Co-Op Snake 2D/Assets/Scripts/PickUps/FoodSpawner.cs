@@ -26,8 +26,8 @@ public class FoodSpawner : MonoBehaviour
     private void Start()
     {
 
-        xBoundry = GameManager.Instance.xBoundry;
-        yBoundry = GameManager.Instance.yBoundry;
+        xBoundry = GameManager.Instance.XBoundry;
+        yBoundry = GameManager.Instance.YBoundry;
         float foodSpawnTimeInterval = Random.Range(foodSpawnTimeIntervalMin, foodSpawnTimeIntervalMax);
         Invoke(nameof(SpawnFood), foodSpawnTimeInterval);
         float powerUpSpawnTimeInterval = Random.Range(powerUpSpawnTimeIntervalMin, powerUpSpawnTimeIntervalMax);

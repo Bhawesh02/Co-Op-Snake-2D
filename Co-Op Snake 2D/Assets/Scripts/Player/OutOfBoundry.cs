@@ -8,8 +8,8 @@ public class OutOfBoundry : MonoBehaviour
     private int yBoundry;
     private void Start()
     {
-        xBoundry = GameManager.Instance.xBoundry;
-        yBoundry = GameManager.Instance.yBoundry;
+        xBoundry = GameManager.Instance.XBoundry;
+        yBoundry = GameManager.Instance.YBoundry;
     }
     void Update()
     {

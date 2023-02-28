@@ -44,5 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf76e71a4314eb46b9b931cc96d8765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xBoundry: 0
-  yBoundry: 0
+  XBoundry: 16
+  YBoundry: 8
+  PlayerLostId: 0
+  Players: []
+  FoodSpawn: {fileID: 0}
+  GameOver: {fileID: 0}
+  GamePause: {fileID: 0}

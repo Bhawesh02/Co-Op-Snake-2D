@@ -60,7 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.players.Add(this);
+        GameManager.Instance.Players.Add(this);
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
         if((GameMode)PlayerPrefs.GetInt("GameMode") == GameMode.Solo)
         InvokeRepeating(nameof(ScoreUpdate), scoreUpdateTime, scoreUpdateTime);
@@ -184,6 +184,7 @@ public class PlayerController : MonoBehaviour
         CancelInvoke();
         foodSpawner.CancelInvoke();
         gameOver.SetActive(true);
+        GameManager.Instance.FoodSpawn.enabled = false;
         this.enabled = false;
     }
 
