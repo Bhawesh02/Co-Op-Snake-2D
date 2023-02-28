@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     private float verticalInput;
     [SerializeField]
     private float bufferMovementTime;
+    private readonly float lowestMovementTime = 0.04f;
     private Vector2 moveDirection = Vector2.zero;
 
     public List<Transform> snakeSegments;
@@ -40,6 +41,9 @@ public class PlayerController : MonoBehaviour
     private bool shieldInUse = false;
 
     [SerializeField]
+    private int playerId;
+
+    [SerializeField]
     private FoodSpawner foodSpawner;
 
     private void Awake()
@@ -49,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+
 
     private void Start()
     {
@@ -65,8 +69,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMovement()
     {
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontalInput = Input.GetAxisRaw("Horizontal " + playerId);
+        verticalInput = Input.GetAxisRaw("Vertical " + playerId);
         if (horizontalInput > 0 && moveDirection != Vector2.left)
         {
             moveDirection = Vector2.right;
@@ -130,7 +134,7 @@ public class PlayerController : MonoBehaviour
     public void Shield()
     {
         shieldInUse = true;
-        Invoke(nameof(DisableShield),shieldPowerupDuration);
+        Invoke(nameof(DisableShield), shieldPowerupDuration);
     }
 
 
@@ -152,6 +156,8 @@ public class PlayerController : MonoBehaviour
 
     public void SpeedBoost()
     {
+        if (bufferMovementTime == lowestMovementTime)
+            return;
         CancelInvoke(nameof(PlayerMovement));
         bufferMovementTime /= 2;
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
@@ -162,7 +168,7 @@ public class PlayerController : MonoBehaviour
     {
         CancelInvoke(nameof(PlayerMovement));
         bufferMovementTime *= 2;
-        InvokeRepeating(nameof(PlayerMovement), bufferMovementTime , bufferMovementTime );
+        InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
     }
     public void GameOver()
     {
