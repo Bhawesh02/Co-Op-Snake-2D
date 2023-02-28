@@ -4,12 +4,24 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour
 {
+
+    public PlayerController attachedPlayerController;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
-        if (playerController == null)
+        PlayerController bittenPlayerController = collision.gameObject.GetComponent<PlayerController>();
+        if (bittenPlayerController == null)
             return;
-        playerController.GameOver();
+
+        if (bittenPlayerController == attachedPlayerController)
+            Debug.Log("Player: "+attachedPlayerController.playerId+" Bit it self");
+        else
+        {
+            Debug.Log("Player: "+ bittenPlayerController.playerId+" won");
+            attachedPlayerController.GameOver();
+        }
+            
+
+        bittenPlayerController.GameOver();
 
     }
 }

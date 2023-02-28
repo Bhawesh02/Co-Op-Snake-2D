@@ -40,8 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private bool shieldInUse = false;
 
-    [SerializeField]
-    private int playerId;
+    public int playerId;
 
     [SerializeField]
     private FoodSpawner foodSpawner;
@@ -120,6 +119,7 @@ public class PlayerController : MonoBehaviour
     public void Grow()
     {
         Transform segment = Instantiate(snakeSegmentPrefab, lastHeadPosition, snakeSegments[^1].rotation, transform.parent);
+        segment.GetComponent<GameOver>().attachedPlayerController = this;
         snakeSegments.Insert(1, segment);
     }
 
