@@ -13,12 +13,13 @@ public class OutOfBoundry : MonoBehaviour
     }
     void Update()
     {
+
         Vector3 segmentPosition = transform.position;
-        if (Mathf.Abs(segmentPosition.x) == xBoundry)
+        if (Mathf.Abs(segmentPosition.x) >= xBoundry)
         {
             segmentPosition.x = (segmentPosition.x - (1 * Mathf.Sign(segmentPosition.x))) * -1;
         }
-        else if (Mathf.Abs(segmentPosition.y) == yBoundry)
+        else if (Mathf.Abs(segmentPosition.y) >= yBoundry)
         {
             segmentPosition.y = (segmentPosition.y - (1 * Mathf.Sign(segmentPosition.y))) * -1;
         }
