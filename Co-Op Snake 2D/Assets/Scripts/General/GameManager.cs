@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum GameMode
+{
+    Solo,
+    Coop
+}
 public class GameManager :MonoBehaviour
 {
     private static GameManager instance;
@@ -10,6 +14,10 @@ public class GameManager :MonoBehaviour
     public int xBoundry;
     public int yBoundry;
 
+    public int playerLostId;
+
+
+    public List<PlayerController> players;
     private void Awake()
     {
         if(instance == null)

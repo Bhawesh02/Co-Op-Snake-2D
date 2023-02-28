@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI scoreText;
 
-    private int currentScore = 0;
+    [HideInInspector]
+    public int currentScore = 0;
 
     [SerializeField]
     private int increaseScoreAmt = 5;
@@ -59,6 +60,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.Instance.players.Add(this);
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
         InvokeRepeating(nameof(ScoreUpdate), scoreUpdateTime, scoreUpdateTime);
     }
@@ -180,7 +182,7 @@ public class PlayerController : MonoBehaviour
 
         CancelInvoke();
         foodSpawner.CancelInvoke();
-        gameObject.SetActive(true);
+        gameOver.SetActive(true);
         this.enabled = false;
     }
 

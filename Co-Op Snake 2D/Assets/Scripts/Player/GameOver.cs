@@ -13,10 +13,10 @@ public class GameOver : MonoBehaviour
             return;
 
         if (bittenPlayerController == attachedPlayerController)
-            Debug.Log("Player: "+attachedPlayerController.playerId+" Bit it self");
+            GameManager.Instance.playerLostId = bittenPlayerController.playerId;
         else
         {
-            Debug.Log("Player: "+ bittenPlayerController.playerId+" won");
+            GameManager.Instance.playerLostId = attachedPlayerController.playerId;
             attachedPlayerController.GameOver();
         }
             

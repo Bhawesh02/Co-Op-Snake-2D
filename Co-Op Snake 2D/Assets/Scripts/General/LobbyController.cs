@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+
 public class LobbyController : MonoBehaviour
 {
     [SerializeField]
@@ -32,11 +34,13 @@ public class LobbyController : MonoBehaviour
 
     private void SoloPlay()
     {
+        PlayerPrefs.SetInt("GameMode", (int)GameMode.Solo);
         SceneManager.LoadScene(1);
     }
 
     private void CoopPlay()
     {
+        PlayerPrefs.SetInt("GameMode", (int)GameMode.Coop);
         SceneManager.LoadScene(2);
     }
 
