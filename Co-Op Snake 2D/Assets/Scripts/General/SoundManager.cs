@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -9,7 +7,8 @@ public enum SoundType
     ButtonClick,
     Background,
     LevelStart,
-    LevelEnd
+    LevelEnd,
+    FoodPickUp
 }
 [Serializable]
 public class Sounds
