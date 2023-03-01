@@ -339,11 +339,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8672752796183694212, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8672752796183694212, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8672752796183694212, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -382,10 +382,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 793801391}
     - target: {fileID: 8672752796183694213, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
-      propertyPath: playerId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8672752796183694213, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 121796853}
@@ -393,14 +389,6 @@ PrefabInstance:
       propertyPath: foodSpawner
       value: 
       objectReference: {fileID: 1447280686}
-    - target: {fileID: 8672752796183694213, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
-      propertyPath: scoreUpdateTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8672752796183694213, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
-      propertyPath: bufferMovementTime
-      value: 0.08
-      objectReference: {fileID: 0}
     - target: {fileID: 8672752796183694216, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
       propertyPath: m_Name
       value: Snake_Head

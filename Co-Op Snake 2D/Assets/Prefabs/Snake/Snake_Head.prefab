@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a6389c1368f3c0348a4a4d02194be695, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -126,7 +126,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 1.4222223, y: 1.4222223}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -148,13 +148,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bufferMovementTime: 0.08
+  snakeSegments: []
   snakeSegmentPrefab: {fileID: 8672752796183694212, guid: 9414fcecd4d892941843bd006279f2b4, type: 3}
   scoreText: {fileID: 0}
+  currentScore: 0
   increaseScoreAmt: 5
-  scoreUpdateTime: 0
+  scoreUpdateTime: 2
   shieldPowerupDuration: 3
   ScoreBoostPowerupDuration: 7
   SpeedBoostPowerupDuration: 5
+  playerId: 1
+  foodSpawner: {fileID: 0}
+  gameOver: {fileID: 0}
 --- !u!114 &8672752796183694210
 MonoBehaviour:
   m_ObjectHideFlags: 0
