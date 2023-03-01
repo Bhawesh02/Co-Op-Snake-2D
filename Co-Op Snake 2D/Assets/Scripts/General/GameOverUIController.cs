@@ -30,7 +30,7 @@ public class GameOverUIController : MonoBehaviour
         else
             CoopGameOver();
 
-
+        SoundManager.Instance.PlaySfxSound(SoundType.LevelEnd);
     }
 
     private void SoloGameOver()
