@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.Players.Add(this);
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
+        PrintScore();
         if (GameManager.Instance.Mode == GameMode.Solo)
             InvokeRepeating(nameof(ScoreIncrease), scoreUpdateTime, scoreUpdateTime);
     }
@@ -82,7 +83,10 @@ public class PlayerController : MonoBehaviour
     }
     private void PrintScore()
     {
-        scoreText.text = "Player "+playerId+" Score: " + currentScore;
+        if (GameManager.Instance.Mode == GameMode.Coop)
+            scoreText.text = "Player "+playerId+" Score: " + currentScore;
+        else
+            scoreText.text = "Score: " + currentScore;
     }
 
     private void PlayerMovement()
