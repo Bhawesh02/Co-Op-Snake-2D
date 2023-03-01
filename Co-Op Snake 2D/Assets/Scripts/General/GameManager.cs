@@ -37,6 +37,9 @@ public class GameManager : MonoBehaviour
 
     public GameMode Mode;
 
+    [SerializeField]
+    private List<Button> buttons;
+
     private void Awake()
     {
         if (instance == null)
@@ -48,6 +51,12 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         Mode = (GameMode)PlayerPrefs.GetInt("GameMode");
+        buttons.ForEach(button=>button.onClick.AddListener(PlayButtonClipSound));
+    }
+
+    private void PlayButtonClipSound()
+    {
+        SoundManager.Instance.PlaySfxSound(SoundType.ButtonClick);
     }
 
     private void Start()
