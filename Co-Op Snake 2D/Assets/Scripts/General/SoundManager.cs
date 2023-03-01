@@ -43,4 +43,19 @@ public class SoundManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void PlaySfxSound(SoundType type)
+    {
+        Sounds sound = Array.Find(sounds, s => s.soundType == type);
+        AudioClip clip = sound.soundClip;
+        soundSfx.PlayOneShot(clip);
+    }
+
+    public void PlayBgSound(SoundType type)
+    {
+        Sounds sound = Array.Find(sounds, s => s.soundType == type);
+        AudioClip clip = sound.soundClip;
+        soundBg.clip = clip;
+        soundBg.Play();
+    }
 }

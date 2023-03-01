@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - soundType: 0
-    soundClip: {fileID: 0}
+    soundClip: {fileID: 8300000, guid: 24d73765699ce3e46bb23cabc3a46494, type: 3}
   soundSfx: {fileID: 216584095}
   soundBg: {fileID: 405865278}
 --- !u!4 &503544042
