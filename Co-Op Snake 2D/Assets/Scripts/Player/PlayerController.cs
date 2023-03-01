@@ -152,6 +152,7 @@ public class PlayerController : MonoBehaviour
     {
         Transform segment = Instantiate(snakeSegmentPrefab, lastHeadPosition, snakeSegments[^1].rotation, transform.parent);
         segment.GetComponent<GameOver>().attachedPlayerController = this;
+        segment.GetComponent<SpriteRenderer>().color = gameObject.GetComponent<SpriteRenderer>().color;
         snakeSegments.Insert(1, segment);
         if (GameManager.Instance.Mode == GameMode.Coop)
             ScoreIncrease();
