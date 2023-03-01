@@ -49,6 +49,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private GameObject gameOver;
 
+    private Rigidbody2D playerRigidbody;
+
     private void Awake()
     {
         snakeSegments = new List<Transform>();
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
         GameManager.Instance.Players.Add(this);
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
         PrintScore();
+        playerRigidbody = GetComponent<Rigidbody2D>();
         if (GameManager.Instance.Mode == GameMode.Solo)
             InvokeRepeating(nameof(ScoreIncrease), scoreUpdateTime, scoreUpdateTime);
     }
@@ -96,18 +99,24 @@ public class PlayerController : MonoBehaviour
         if (horizontalInput > 0 && moveDirection != Vector2.left)
         {
             moveDirection = Vector2.right;
+            transform.rotation = Quaternion.Euler(0f, 0f, -90f);
         }
         if (horizontalInput < 0 && moveDirection != Vector2.right)
         {
             moveDirection = Vector2.left;
+            transform.rotation = Quaternion.Euler(0f, 0f, 90f);
         }
         if (verticalInput > 0 && moveDirection != Vector2.down)
         {
             moveDirection = Vector2.up;
+            transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+
         }
         if (verticalInput < 0 && moveDirection != Vector2.up)
         {
             moveDirection = Vector2.down;
+            transform.rotation = Quaternion.Euler(0f, 0f, 180f);
+
         }
         if (moveDirection == Vector2.zero)
             return;

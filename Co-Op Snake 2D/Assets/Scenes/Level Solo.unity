@@ -389,6 +389,18 @@ PrefabInstance:
       propertyPath: foodSpawner
       value: 
       objectReference: {fileID: 1447280686}
+    - target: {fileID: 8672752796183694215, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672752796183694215, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8672752796183694215, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8672752796183694216, guid: fd8a252a433f06146bd770459424ccd7, type: 3}
       propertyPath: m_Name
       value: Snake_Head
