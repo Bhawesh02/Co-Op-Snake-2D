@@ -7,7 +7,7 @@ using UnityEngine;
 public enum SoundType
 {
     ButtonClick,
-    Lobby,
+    Background,
     LevelStart,
     LevelEnd
 }
@@ -42,6 +42,7 @@ public class SoundManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        PlayBgSound(SoundType.Background);
     }
 
     public void PlaySfxSound(SoundType type)
