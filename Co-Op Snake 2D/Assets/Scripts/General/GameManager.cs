@@ -35,6 +35,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private Button resumeButton;
 
+    public GameMode Mode;
+
     private void Awake()
     {
         if (instance == null)
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Mode = (GameMode)PlayerPrefs.GetInt("GameMode");
     }
 
     private void Start()

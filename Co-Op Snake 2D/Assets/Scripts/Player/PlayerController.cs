@@ -62,14 +62,27 @@ public class PlayerController : MonoBehaviour
     {
         GameManager.Instance.Players.Add(this);
         InvokeRepeating(nameof(PlayerMovement), bufferMovementTime, bufferMovementTime);
-        if((GameMode)PlayerPrefs.GetInt("GameMode") == GameMode.Solo)
-        InvokeRepeating(nameof(ScoreUpdate), scoreUpdateTime, scoreUpdateTime);
+        if (GameManager.Instance.Mode == GameMode.Solo)
+            InvokeRepeating(nameof(ScoreIncrease), scoreUpdateTime, scoreUpdateTime);
     }
 
-    private void ScoreUpdate()
+    private void ScoreIncrease()
     {
         currentScore += increaseScoreAmt;
-        scoreText.text = "Score: " + currentScore;
+        PrintScore();
+    }
+
+    private void ScoreDecrease()
+    {
+        if (currentScore == 0)
+            return;
+        currentScore -= increaseScoreAmt;
+        PrintScore();
+
+    }
+    private void PrintScore()
+    {
+        scoreText.text = "Player "+playerId+" Score: " + currentScore;
     }
 
     private void PlayerMovement()
@@ -127,6 +140,8 @@ public class PlayerController : MonoBehaviour
         Transform segment = Instantiate(snakeSegmentPrefab, lastHeadPosition, snakeSegments[^1].rotation, transform.parent);
         segment.GetComponent<GameOver>().attachedPlayerController = this;
         snakeSegments.Insert(1, segment);
+        if (GameManager.Instance.Mode == GameMode.Coop)
+            ScoreIncrease();
     }
 
     public void Srink()
@@ -136,6 +151,8 @@ public class PlayerController : MonoBehaviour
         Transform lastSegment = snakeSegments[^1];
         snakeSegments.Remove(lastSegment);
         Destroy(lastSegment.gameObject);
+        if (GameManager.Instance.Mode == GameMode.Coop)
+            ScoreDecrease();
     }
     public void Shield()
     {
