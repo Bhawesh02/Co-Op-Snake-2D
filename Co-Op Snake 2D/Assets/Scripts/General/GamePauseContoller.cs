@@ -11,5 +11,13 @@ public class GamePauseContoller : MonoBehaviour
     {
         replayButton.onClick.AddListener(GameManager.Instance.RestartLevel);
     }
-    
+    private void OnEnable()
+    {
+        SoundManager.Instance.PauseSound();
+    }
+    private void OnDisable()
+    {
+        SoundManager.Instance.ResumeSound();
+
+    }
 }
