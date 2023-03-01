@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
         }
         Mode = (GameMode)PlayerPrefs.GetInt("GameMode");
         buttons.ForEach(button=>button.onClick.AddListener(PlayButtonClipSound));
-        SoundManager.Instance.PlaySfxSound(SoundType.LevelStart);
     }
 
     private void PlayButtonClipSound()

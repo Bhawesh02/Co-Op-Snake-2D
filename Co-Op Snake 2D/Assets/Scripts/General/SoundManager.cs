@@ -59,13 +59,4 @@ public class SoundManager : MonoBehaviour
         soundBg.clip = clip;
         soundBg.Play();
     }
-
-    public void PauseSound()
-    {
-        soundBg.Pause();
-    }
-    public void ResumeSound()
-    {
-        soundBg.Play();
-    }
 }
