@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public enum GameMode
 {
@@ -29,6 +30,11 @@ public class GameManager : MonoBehaviour
 
     public GameObject GamePause;
 
+    [SerializeField]
+    private Button pauseButton;
+    [SerializeField]
+    private Button resumeButton;
+
     private void Awake()
     {
         if (instance == null)
@@ -41,6 +47,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        pauseButton.onClick.AddListener(PauseGame);
+        resumeButton.onClick.AddListener(ResumeGame);
+    }
     public void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

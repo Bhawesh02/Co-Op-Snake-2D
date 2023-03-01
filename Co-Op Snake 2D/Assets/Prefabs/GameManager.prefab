@@ -51,3 +51,5 @@ MonoBehaviour:
   FoodSpawn: {fileID: 0}
   GameOver: {fileID: 0}
   GamePause: {fileID: 0}
+  pauseButton: {fileID: 0}
+  resumeButton: {fileID: 0}
