@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float bufferMovementTime;
     private readonly float lowestMovementTime = 0.04f;
-    private Vector2 moveDirection = Vector2.zero;
+    private Vector2 moveDirection = Vector2.up;
 
     public List<Transform> snakeSegments;
 

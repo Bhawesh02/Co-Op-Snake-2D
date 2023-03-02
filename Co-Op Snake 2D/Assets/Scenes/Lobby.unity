@@ -1033,6 +1033,8 @@ MonoBehaviour:
     soundClip: {fileID: 8300000, guid: 00b18e15346f38a4e8535ac98e4ac9ee, type: 3}
   - soundType: 3
     soundClip: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
+  - soundType: 3
+    soundClip: {fileID: 8300000, guid: bd8857660a16ba549b8cc522d93d9117, type: 3}
   soundSfx: {fileID: 216584095}
   soundBg: {fileID: 405865278}
 --- !u!4 &503544042
