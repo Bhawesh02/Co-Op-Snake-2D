@@ -13,6 +13,10 @@ public class FoodController : MonoBehaviour
 {
     public FoodType type;
     PlayerController playerController;
+    private void Awake()
+    {
+        FoodSpawner.Instance.foodsTransform.Add(gameObject.transform);
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         playerController = collision.gameObject.GetComponent<PlayerController>();
@@ -36,8 +40,13 @@ public class FoodController : MonoBehaviour
                 playerController.SpeedBoost();
                 break;
         }
+
         Destroy(gameObject);
     }
+    private void OnDestroy()
+    {
+        FoodSpawner.Instance.foodsTransform.Remove(gameObject.transform);
 
-    
+    }
+
 }
