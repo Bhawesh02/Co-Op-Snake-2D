@@ -77,24 +77,29 @@ public class GameManager : MonoBehaviour
         if (GameOver.activeSelf)
             return;
         if (!GamePause.activeSelf)
+        { 
             PauseGame();
+            GamePause.SetActive(true);
+
+        }
         else
+        {
             ResumeGame();
+            GamePause.SetActive(false);
+        }
     }
 
-    private void ResumeGame()
+    public void ResumeGame()
     {
         Time.timeScale = 1;
         Players.ForEach(player => player.enabled = true);
         FoodSpawn.enabled = true;
-        GamePause.SetActive(false);
     }
 
-    private void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         Players.ForEach(player => player.enabled = false);
         FoodSpawn.enabled = false;
-        GamePause.SetActive(true);
     }
 }
