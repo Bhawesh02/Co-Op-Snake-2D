@@ -12,6 +12,7 @@ public class DestroyIfNotPicked : MonoBehaviour
     IEnumerator NotPicked()
     {
         yield return new WaitForSeconds(waitSeconds) ;
+        SoundManager.Instance.PlaySfxSound(SoundType.FoodNotPicked);
         Destroy(gameObject);
     }
 }

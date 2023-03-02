@@ -40,7 +40,7 @@ public class FoodController : MonoBehaviour
                 playerController.SpeedBoost();
                 break;
         }
-
+        SoundManager.Instance.PlaySfxSound(SoundType.FoodPickUp);
         Destroy(gameObject);
     }
     private void OnDestroy()

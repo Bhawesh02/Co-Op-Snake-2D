@@ -8,7 +8,8 @@ public enum SoundType
     Background,
     LevelStart,
     LevelEnd,
-    FoodPickUp
+    FoodPickUp,
+    FoodNotPicked
 }
 [Serializable]
 public class Sounds
@@ -47,6 +48,8 @@ public class SoundManager : MonoBehaviour
     public void PlaySfxSound(SoundType type)
     {
         Sounds sound = Array.Find(sounds, s => s.soundType == type);
+        if (sound == null)
+            return;
         AudioClip clip = sound.soundClip;
         soundSfx.PlayOneShot(clip);
     }
@@ -54,6 +57,8 @@ public class SoundManager : MonoBehaviour
     public void PlayBgSound(SoundType type)
     {
         Sounds sound = Array.Find(sounds, s => s.soundType == type);
+        if (sound == null)
+            return;
         AudioClip clip = sound.soundClip;
         soundBg.clip = clip;
         soundBg.Play();
