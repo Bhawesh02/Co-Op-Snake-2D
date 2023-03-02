@@ -2426,6 +2426,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FoodSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 6724845569077271405, guid: 8c6e9b296ab6d914286634f51026c0f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6724845569077271406, guid: 8c6e9b296ab6d914286634f51026c0f2, type: 3}
       propertyPath: foods.Array.size
       value: 2
